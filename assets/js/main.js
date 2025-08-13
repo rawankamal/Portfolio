@@ -52,6 +52,8 @@ function filterProjects(filter, projectItems) {
         if (filter === 'all' || category === filter) {
             item.classList.remove('hidden');
             item.style.display = 'flex'; // Make sure it's visible
+            item.style.pointerEvents = 'auto'; // FIX: Reset pointer events for visible items
+
             // Simple fade in animation
             item.style.opacity = '0';
             item.style.transform = 'translateY(20px)';
@@ -72,10 +74,8 @@ function filterProjects(filter, projectItems) {
                 item.style.display = 'none';
             });
         }
-        
     });
 }
-
 // Project filtering setup
 document.addEventListener('DOMContentLoaded', function () {
     const filterButtons = document.querySelectorAll('.filter-btn');
